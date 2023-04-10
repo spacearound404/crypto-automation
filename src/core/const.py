@@ -1,0 +1,7 @@
+MANY_ADDRESSES = 'many_addresses'
+MANY_ACCOUNTS = 'many_accounts'
+
+BINANCE_TYPE_WITHDRAW = [
+    MANY_ADDRESSES,
+    MANY_ACCOUNTS,
+]
