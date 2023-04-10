@@ -1,0 +1,69 @@
+[
+  {
+    "type": "okx-withdraw",
+    "data": {
+      "min_sleep": 1,
+      "max_sleep": 3,
+      "api_key": "",
+      "secret": "",
+      "password": "",
+      "token": "USDT",
+      "amount": 10,
+      "min_amount": 3,
+      "max_amount": 10,
+      "network": "MATIC",
+      "fee": "1",
+      "min_fee": "1",
+      "max_fee": "1",
+      "addresses_path": "./data/okx.txt",
+      "proxies": {
+            "http": "",
+            "https": ""
+      }
+    }
+  },
+  {
+    "type": "binance-withdraw",
+    "data": {
+      "api_key": "",
+      "secret": "",
+      "token": "USDT",
+      "amount": 10,
+      "min_amount": 4,
+      "max_amount": 10,
+      "min_sleep": 3,
+      "max_sleep": 6,
+      "network": "MATIC",
+      "addresses_path": "./data/binance.txt"
+    }
+  },
+  {
+    "type": "orbiter-bridging",
+    "data": {
+      "private_keys_path": "./data/bridge.txt",
+      "from_chain": "MATIC",
+      "to_chain": "ARBITRUM",
+      "amount": "20%",
+      "min_sleep": 4,
+      "max_sleep": 10,
+      "token": "USDT",
+      "token_contract": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "bridge_contract": "0xd7aa9ba6caac7b0436c91396f22ca5a7f31664fc"
+    }
+  },
+  {
+    "type": "mm-withdraw",
+    "data": {
+      "token": "USDT",
+      "amount": 100,
+      "min_amount": 10,
+      "max_amount": 20,
+      "min_sleep": 3,
+      "max_sleep": 10,
+      "network": "MATIC",
+      "private_key": "",
+      "token_contract": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "addresses_path": "./data/transfer.txt"
+    }
+  }
+]
