@@ -28,6 +28,7 @@ def okx_withdraw(address_wallet, amount_to_withdraw, fee, symbol_to_withdraw, ne
             tag=None,
             params={
                 'network': network,
+                'chainName': network,
                 'fee': fee,
                 'password': password
             }

@@ -44,37 +44,36 @@ def transfer_token(private_key, token, amount_to_transfer, to_address, chain_id,
         print(f'gasLimit: {gasLimit}')
         print(f'gasPrice: {gasPrice}')
 
-        # if chain_id == 1:
-        #     contract_txn = token_contract\
-        #         .functions.transfer(Web3.to_checksum_address(to_address), int(amount))\
-        #         .build_transaction({
-        #             'type': '0x2',
-        #             'chainId': chain_id,
-        #             # 'gas': gasLimit,
-        #             'maxFeePerGas': random.randrange(20000000000, 25000000000, 9),
-        #             # 'maxFeePerGas': web3.to_wei('25', 'gwei'),
-        #             'maxPriorityFeePerGas': web3.to_wei('1.5', 'gwei'),
-        #             'nonce': nonce,
-        #         })
-        # else:
-        #     contract_txn = token_contract\
-        #         .functions\
-        #         .transfer(Web3.to_checksum_address(to_address), amount)\
-        #         .build_transaction({
-        #             'chainId': chain_id,
-        #             'from': address,
-        #             'gasPrice': gasPrice,
-        #             'value': 0,
-        #             # 'gas': gasLimit,
-        #             'nonce': nonce,
-        #         })
-        #
-        # tx_signed = web3.eth.account.sign_transaction(contract_txn, private_key)
-        # tx_hash = web3.eth.send_raw_transaction(tx_signed.rawTransaction)
-        #
-        # print(f'tx_hash: {tx_hash}')
-        #
-        # cprint(f'\n>>> transfer : {decimal.Decimal(str(amount_to_transfer))} | {address} => {to_address} | {scan}/{web3.to_hex(tx_hash)}', 'green')
+        if chain_id == 1:
+            contract_txn = token_contract\
+                .functions.transfer(Web3.to_checksum_address(to_address), int(amount))\
+                .build_transaction({
+                    'type': '0x2',
+                    'chainId': chain_id,
+                    # 'gas': gasLimit,
+                    'maxFeePerGas': random.randrange(20000000000, 25000000000, 9),
+                    # 'maxFeePerGas': web3.to_wei('25', 'gwei'),
+                    'maxPriorityFeePerGas': web3.to_wei('1.5', 'gwei'),
+                    'nonce': nonce,
+                })
+        else:
+            contract_txn = token_contract\
+                .functions\
+                .transfer(Web3.to_checksum_address(to_address), amount)\
+                .build_transaction({
+                    'chainId': chain_id,
+                    'from': address,
+                    'gasPrice': gasPrice,
+                    'value': 0,
+                    # 'gas': gasLimit,
+                    'nonce': nonce,
+                })
+        tx_signed = web3.eth.account.sign_transaction(contract_txn, private_key)
+        tx_hash = web3.eth.send_raw_transaction(tx_signed.rawTransaction)
+        
+        print(f'tx_hash: {tx_hash}')
+        
+        cprint(f'\n>>> transfer : {decimal.Decimal(str(amount_to_transfer))} | {address} => {to_address} | {scan}/{web3.to_hex(tx_hash)}', 'green')
 
     except Exception as error:
         cprint(f'\n>>> transfer : {private_key} | {error}', 'red')

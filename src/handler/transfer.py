@@ -6,8 +6,7 @@ from src.core import utils
 def transfer_tokens_handler(data):
     # ETH | OPTIMISM | BNB | MATIC | FTM | ARBITRUM | NOVA | AVAXC
     addresses = []
-    min_amount = data['min_amount']
-    max_amount = data['max_amount']
+    pk_amnt_addr_list = []
     min_sleep = data['min_sleep']
     max_sleep = data['max_sleep']
     total_amount = data['amount']
@@ -18,36 +17,36 @@ def transfer_tokens_handler(data):
         for line in file.readlines():
             addresses.append(line.strip())
 
-    address_amount_mapping = utils.distribute_funds(
-        addresses,
-        float(total_amount),
-        float(min_amount),
-        float(max_amount)
-    )
+    with open(data['private_keys_amount_path'], 'r') as file:
+        for line in file.readlines():
+            pk, amount = line.strip().split(' ')
+            pk_amnt_addr_list.append({
+                'pk': pk,
+                'amnt': float(amount),
+                'addr': ''
+            })
 
-    print(f'total_amount: {total_amount}')
-    print(f'min_amount: {min_amount}')
-    print(f'max_amount: {max_amount}')
-    print(f'addresses: {addresses}')
-    print(f'address_amount_mapping: {address_amount_mapping}')
+    for i, address in enumerate(addresses):
+        pk_amnt_addr_list[i]['addr'] = address
 
-    for address, amount in address_amount_mapping.items():
-        print(f'address: {address}')
-        print(f'amount: {amount}')
+    for pk_amnt_addr in pk_amnt_addr_list:
+        pk = pk_amnt_addr['pk']
+        amount = pk_amnt_addr['amnt']
+        to_address = pk_amnt_addr['addr']
 
-        print(f"private_key: {data['private_key']}")
+        print(f"private_key: {pk}")
         print(f"token: {data['token']}")
-        print(f"address: {address}")
+        print(f"to_address: {to_address}")
         print(f"network: {data['network']}")
         print(f"amount: {float(amount)}")
         print(f"token_contract: {data['token_contract']}")
 
         transfer(
-            data['private_key'],
+            pk,
             data['token'],
-            address,
+            to_address,
             data['network'],
-            float(amount),
+            amount,
             data['token_contract']
         )
 

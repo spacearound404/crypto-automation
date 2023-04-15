@@ -1,7 +1,7 @@
 import json
 
 ERC20_ABI_PATH = './abi/erc20.json'
-ACTIONS_PATH = './test_actions.json'
+ACTIONS_PATH = './actions.json'
 
 with open(ERC20_ABI_PATH, 'r') as file:
     ERC20_ABI = json.load(file)

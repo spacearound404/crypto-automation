@@ -4,29 +4,28 @@
     "data": {
       "min_sleep": 1,
       "max_sleep": 3,
-      "api_key": "",
-      "secret": "",
-      "password": "",
+      "api_key": "<YOUR API KEY>",
+      "secret": "<YOUR SECRET>",
+      "password": "<YOUR PASSWORD>",
       "token": "USDT",
       "amount": 10,
       "min_amount": 3,
       "max_amount": 10,
       "network": "MATIC",
-      "fee": "1",
       "min_fee": "1",
       "max_fee": "1",
       "addresses_path": "./data/okx.txt",
       "proxies": {
-            "http": "",
-            "https": ""
+            "http": "http://<HOST>:<PORT>",
+            "https": "http://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/"
       }
     }
   },
   {
     "type": "binance-withdraw",
     "data": {
-      "api_key": "",
-      "secret": "",
+      "api_key": "<YOUR API KEY>",
+      "secret": "<SECRET>",
       "token": "USDT",
       "amount": 10,
       "min_amount": 4,
@@ -55,13 +54,10 @@
     "type": "mm-withdraw",
     "data": {
       "token": "USDT",
-      "amount": 100,
-      "min_amount": 10,
-      "max_amount": 20,
       "min_sleep": 3,
       "max_sleep": 10,
       "network": "MATIC",
-      "private_key": "",
+      "private_keys_amount_path": "./data/pk_amount_path.txt",
       "token_contract": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
       "addresses_path": "./data/transfer.txt"
     }

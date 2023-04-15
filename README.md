@@ -100,22 +100,22 @@ You can combine these actions, building them into a chain of actions to automate
   }
 ```
 
-| Name | Description                                                                        |
-| --- |------------------------------------------------------------------------------------|
-| api_key | API key from OKX account                                                           |
-| secret | secret from OKX account                                                            |
-| password | password from API key                                                              |
-| token | token name (see all tokens name from OKX site)                                     |
-| amount | token amount for withdraw (supported up to two decimal places)                     |
-| min_amount | minimum value for generating a random value for withdraw to one wallet             |
-| max_amount | maximum value for generating a random value for withdraw to one wallet             |
-| min_sleep | minimum value for generating a random value for sleep between action               |
-| max_sleep | minimum value for generating a random value for sleep between action               |
-| network | network name from OKX site                                                         |
-| addresses_path | path to file with list of addresses (each address must start on a new line)        |
-| min_fee | minimum value for generating a random value for fee                                |
-| max_fee | maximum value for generating a random value for fee                                |
-| proxies | structure: `{"http": "http://host:port", "https": "http://user:password@host:port"}` |
+| Name | Description                                                                              |
+| --- |------------------------------------------------------------------------------------------|
+| api_key | API key from OKX account                                                                 |
+| secret | secret from OKX account                                                                  |
+| password | password from API key                                                                    |
+| token | token name (see all tokens name from OKX site)                                           |
+| amount | token amount for withdraw (supported up to two decimal places)                           |
+| min_amount | minimum value for generating a random value for withdraw to one wallet                   |
+| max_amount | maximum value for generating a random value for withdraw to one wallet                   |
+| min_sleep | minimum value for generating a random value for sleep between action                     |
+| max_sleep | minimum value for generating a random value for sleep between action                     |
+| network | network name from OKX site                                                               |
+| addresses_path | path to file with list of addresses (each address must start on a new line)              |
+| min_fee | minimum value for generating a random value for fee (supported up to two decimal places) |
+| max_fee | maximum value for generating a random value for fee (supported up to two decimal places)                                     |
+| proxies | structure: `{"http": "http://host:port", "https": "http://user:password@host:port"}`     |
 
 ### Metamask transfer templates
 ```json
@@ -136,18 +136,18 @@ You can combine these actions, building them into a chain of actions to automate
   }
 ```
 
-| Name | Description |
-| --- | --- |
-| `token` | token name (see `/abi` folder) |
-| `amount` | token amount for withdraw (supported up to two decimal places) |
-| `min_amount` | minimum value for generating a random value for withdraw to one wallet |
-| `max_amount` | maximum value for generating a random value for withdraw to one wallet |
-| `min_sleep` | minimum value for generating a random value for sleep between action |
-| `max_sleep` | minimum value for generating a random value for sleep between action |
-| `network` | network name (see `config.py` and get network name from) |
-| `private_key` | private key of wallet |
-| `token_contract` | token address in network |
-| `addresses_path` | path to file with list of addresses (each address must start on a new line) |
+| Name | Description                                                                                                                  |
+| --- |------------------------------------------------------------------------------------------------------------------------------|
+| `token` | token name (see `/abi` folder)                                                                                               |
+| `amount` | token amount for withdraw (supported up to two decimal places)                                                               |
+| `min_amount` | minimum value for generating a random value for withdraw to one wallet                                                       |
+| `max_amount` | maximum value for generating a random value for withdraw to one wallet                                                       |
+| `min_sleep` | minimum value for generating a random value for sleep between action                                                         |
+| `max_sleep` | minimum value for generating a random value for sleep between action                                                         |
+| `network` | network name (see `config.py` and get network name from)                                                                     |
+| `private_keys_amount_path` | path to file with list of private keys and amount, enter quantity separated by a space (supported up to two decimal places) (each address must start on a new line) |
+| `token_contract` | token address in network                                                                                                     |
+| `addresses_path` | path to file with list of addresses (each address must start on a new line)                                                  |
 
 ### Orbiter bridge templates
 ```json
@@ -167,17 +167,17 @@ You can combine these actions, building them into a chain of actions to automate
   }
 ```
 
-| Name | Description |
-| --- | --- |
-| `token` | token name (see `/abi` folder) |
-| `amount` | token amount for withdraw in percentage (supported up to two decimal places). Example: `1%`, `15.6%`, `19,3 %` |
-| `private_keys_path` | path to file with list of private keys from wallets (each pk must start on a new line) |
-| `min_sleep` | minimum value for generating a random value for sleep between action |
-| `max_sleep` | minimum value for generating a random value for sleep between action |
-| `from_chain` | network name (see `config.py` and get network name from) |
-| `to_chain` | network name (see `config.py` and get network name from) |
-| `token_contract` | token address in network |
-| `bridge_contract` | bridge contract address of Orbiter |
+| Name | Description                                                                                                              |
+| --- |--------------------------------------------------------------------------------------------------------------------------|
+| `token` | token name (see `/abi` folder)                                                                                           |
+| `amount` | token amount for withdraw in percentage (supported up to two decimal places) or amount. Example: `1%`, `15.6%`, `19,3 %` |
+| `private_keys_path` | path to file with list of private keys from wallets (each pk must start on a new line)                                   |
+| `min_sleep` | minimum value for generating a random value for sleep between action                                                     |
+| `max_sleep` | minimum value for generating a random value for sleep between action                                                     |
+| `from_chain` | network name (see `config.py` and get network name from)                                                                 |
+| `to_chain` | network name (see `config.py` and get network name from)                                                                 |
+| `token_contract` | token address in network                                                                                                 |
+| `bridge_contract` | bridge contract address of Orbiter                                                                                       |
 
 ## Run
 To run the project, use the command:

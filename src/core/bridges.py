@@ -32,7 +32,8 @@ def bridge(private_key, token, amount, amount_to_chain, token_contract, bridge_c
             token_amount = token_contract.functions.balanceOf(address_wallet).call() / pow(10, 6)
             print(f'wallet balance: {token_amount}')
             amount = token_amount * (percentage / 100)
-            amount = round(amount, 2)
+            amount = "{:.2f}".format(amount)
+            amount = float(amount)
             print(f'amount without code: {amount}')
 
         amount = round(decimal.Decimal(amount) + decimal.Decimal(amount_to_chain), 6)

@@ -26,12 +26,13 @@ def okx_handler(data):
     print(f'address_amount_mapping: {address_amount_mapping}')
 
     for address, amount in address_amount_mapping.items():
-        fee = random.randint(int(min_fee), int(max_fee))
+        fee = round(random.uniform(float(min_fee), float(max_fee)), 2)
         seconds = random.randint(int(min_sleep), int(max_sleep))
 
         print(f'address: {address}')
         print(f'fee: {fee}')
         print(f'seconds: {seconds}')
+        print(f'amount: {amount}')
         print(f"token: {data['token']}")
         print(f"network: {data['network']}")
         print(f"api_key: {data['api_key']}")
